@@ -11,6 +11,8 @@
 	newmarkers=[];
 	oldmarkers=[];
 	stat=false;
+	var popup;
+	
 	function load()
 	{
 		var lat=40.767612;
@@ -21,6 +23,29 @@
 			center: google_latlon,
 			zoom: 15
         });
+		var cont="<input type='time' placeholder='Checkin time'></input>";
+		popup=new google.maps.InfoWindow({content:cont});
+	}
+	
+	function space_status(occ,res)
+	{
+		if(res=="YES" & occ=="NO")
+		{
+			return "reserved.png";
+		}
+		else if(res=="YES" & occ=="YES")
+		{
+			return "occupied.png";
+		}
+		else if(res=="NO" & occ=="NO")
+		{
+			return "vacant.png";
+		}
+		else
+		{
+			return "vacant.png";
+		}
+	
 	}
 	
 	function ping(){
@@ -34,22 +59,23 @@
 			{
 				var lat=obj[i].lat;
 				var lon=obj[i].lon;
+				var status="";
+				status=space_status(obj[i].is_occupied,obj[i].is_reserved);
+				//alert(status);
 				var google_latlon= new google.maps.LatLng(lat,lon);
 				var nmarker = new google.maps.Marker(
 				{
 					position: google_latlon,
-					title: "Here you live!"
-				});
-				var info=new google.maps.InfoWindow(
-				{
-					content: "Reserve"
+					title: "Here you live!",
+					icon: status
 				});
 				newmarkers.push(nmarker);
-				google.maps.event.addListener(newmarkers[i],'click',function(){info.open(map,this)});
+				google.maps.event.addListener(newmarkers[i],'click',function(){popup.open(map,this)});
 				i++;
 			}
 			
 			// For the first time oldmarkers is 0
+			// This runs for the first time
 			if(oldmarkers.length<=0)
 			{
 				for(b=0;b<newmarkers.length;b++)
@@ -67,12 +93,14 @@
 			var map_rm_ind=[];
 				for(q=0;q<oldmarkers.length;q++)
 				{
+				stat=false;
 					for(w=0;w<newmarkers.length;w++)
 					{
 						var chk=oldmarkers[q].getPosition().equals(newmarkers[w].getPosition());
 						stat |=chk;
 						if(chk)
 						{
+							oldmarkers[q].setIcon(newmarkers[w].icon);
 							// Save these indices in array to remove at end of the loop
 							rm_ind.push(w);
 						}
@@ -95,7 +123,7 @@
 					oldmarkers.splice(u,1);
 				}
 				map_rm_ind=[];
-				// remove existing markers
+				// remove existing markers from newmarkers
 				for(f=0;f<rm_ind.length;f++)
 				{
 					newmarkers.splice(f,1);
