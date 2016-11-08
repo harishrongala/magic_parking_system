@@ -3,16 +3,16 @@
   <head>
     <title>Simple Map</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjMCVGz3TlmuKFuwQ-H7-ORIQQlZ6s2mA"
-    async defer></script>
+	
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjMCVGz3TlmuKFuwQ-H7-ORIQQlZ6s2mA"></script>
 	<script>
       
 	newmarkers=[];
 	oldmarkers=[];
 	
 	function load(){
-var lat=40.767612;
-	  var lon=-73.980918;
+var lat="40.767612";
+	  var lon="-73.980918";
 	 var google_latlon= new google.maps.LatLng(lat,lon);
 	 map = new google.maps.Map(document.getElementById('map'), {
           center: google_latlon,

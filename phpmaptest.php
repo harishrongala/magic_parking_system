@@ -1,10 +1,13 @@
-<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjMCVGz3TlmuKFuwQ-H7-ORIQQlZ6s2mA"
+    async defer></script>
+<?php
+echo'<!DOCTYPE html>
 <html>
   <head>
     <title>Simple Map</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjMCVGz3TlmuKFuwQ-H7-ORIQQlZ6s2mA"
-    async defer></script>
+	
 
 	<script>
 	// Global variables
@@ -155,4 +158,6 @@
     
     
   </body>
+</html>';
+?>
 </html>

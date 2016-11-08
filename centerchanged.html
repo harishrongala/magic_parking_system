@@ -2,13 +2,37 @@
 <html>
   <head>
     <title>Simple Map</title>
+	    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+		width: 100%;
+      }
+	   #static-img{
+        position: absolute;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+        width:100%;
+        text-align:center;
+      }
+    </style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjMCVGz3TlmuKFuwQ-H7-ORIQQlZ6s2mA"
-    async defer></script>
+	
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjMCVGz3TlmuKFuwQ-H7-ORIQQlZ6s2mA"></script>
 
 	<script>
+	//async defer//
+	
 	// Global variables
-	setInterval(ping,1000);
+	setInterval(ping,100);
+	var user_marker="";
+	var cen_lat="";
+	var cen_lon="";
 	newmarkers=[];
 	oldmarkers=[];
 	stat=false;
@@ -16,19 +40,63 @@
 	var popup_content="<form action='#'><input type='time' placeholder='Checkin time'></input><button>Reserve</button></form>";
 	// Global variables end
 	
-	// Map Initializer
-	function load(){
-		var lat=40.767612;
-		var lon=-73.980918;
-		var google_latlon= new google.maps.LatLng(lat,lon);
-		map = new google.maps.Map(document.getElementById('map'), 
-		{
-			center: google_latlon,
-			zoom: 15
-        });
-		popup=new google.maps.InfoWindow({content:popup_content});
+	// Get the geolocation
+	function geolocation()
+	{
+		if(navigator.geolocation){
+			var opt={
+				enableHighAccuracy: true,
+				timeout: Infinity,
+				maximumAge: 0
+			};
+			navigator.geolocation.getCurrentPosition(load);
+		}
 	}
 	
+	// Map Initializer
+	function load(position){
+		cen_lat=position.coords.latitude;
+		cen_lon=position.coords.longitude;
+		var google_latlon= new google.maps.LatLng(cen_lat,cen_lon);
+		map = new google.maps.Map(document.getElementById('map'), 
+		{
+			draggable: true,
+			scrollwheel: false,
+			center: google_latlon,
+			zoom: 15,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+		
+		popup=new google.maps.InfoWindow({content:popup_content});
+		/*user_marker=new google.maps.Marker(
+		{
+			position: google_latlon,
+			map: map
+		});
+		*/
+		$.post("view.php",{cur_lat: cen_lat, cur_lon: cen_lon});
+		map.addListener('dragend', update_center);
+		ping();
+	}
+	
+	function update_center(){
+		cen_lat=map.getCenter().lat();
+		cen_lon=map.getCenter().lng();
+		// Remove all old and new markers
+		for(var o=0;o<oldmarkers.length;o++){
+			oldmarkers[o].setMap(null);
+			oldmarkers[o]=null;
+			oldmarkers.splice(o,1);
+			}
+		for(var o=0;o<newmarkers.length;o++){
+			newmarkers[o].setMap(null);
+			newmarkers[o]=null;
+			newmarkers.splice(o,1);
+			}
+		//alert("New Center "+cen_lat+" "+cen_lon);
+		$.post("view.php",{cur_lat: cen_lat, cur_lon: cen_lon});
+		ping();
+	}
 	// Function that sets marker icons
 	function space_status(occ,res){
 		if(res=="YES" & occ=="NO")
@@ -138,21 +206,13 @@
 	}
 	
     </script>
-    <style>
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      #map {
-        height: 50%;
-		width: 100%;
-      }
-    </style>
+
   </head>
-  <body onload="load()">
+  <body onload="geolocation()">
     <div id="map"></div>
-    
+    <div id="static-img">
+    <img src="http://mt.googleapis.com/vt/icon/name=icons/spotlight/spotlight-poi.png">
+    </div>
     
   </body>
 </html>
