@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 <html>
+<!DOCTYPE html>
 <title>Geolocation api</title>
 <!reference http://www.iconsdb.com/>
 <head>
@@ -9,9 +9,11 @@
         margin: 0;
         padding: 0;
       }
-      #map {
+      <!#map {
         height: 100%;
+		
       }
+	  >
     </style>
 <script type="text/javascript" src="support_geolocation.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjMCVGz3TlmuKFuwQ-H7-ORIQQlZ6s2mA"></script>
@@ -20,13 +22,16 @@
 </head>
 <body>
 <center>
-<p id="msg"> Click this to get your location coordinates </p>
-<button id="init" onclick="get_location()">Geolocation</button>
-<button>Load</button>
+<p id="msg"> System Logo goes here</p>
+<button id="init" onclick="get_location()">Find parking near me</button>
+<input type="location" placeholder="Find Parking near"></input>
 <h5 id="lat"></h5>
 <h5 id="lon"></h5>
+<h5 id="acc"></h5>
 </center>
+<!Showing dummy map>
+<!img src="images/dummy_map.gif" align="center" width="600" height="400">
 <!Map goes here>
-<div id="map"></div>
+<div id="map" width="300" height="200"></div>
 </body>
 </html>

@@ -1,0 +1,1 @@
+define('gmapkey','AIzaSyCjMCVGz3TlmuKFuwQ-H7-ORIQQlZ6s2mA')

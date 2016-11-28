@@ -3,6 +3,8 @@
   <head>
     <title>Simple Map</title>
     <meta name="viewport" content="initial-scale=1.0">
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjMCVGz3TlmuKFuwQ-H7-ORIQQlZ6s2mA"
+    async defer></script>
     <meta charset="utf-8">
     <style>
       html, body {
@@ -29,9 +31,10 @@
 }
       
 	  function printem(position){
-	
-	var lat=position.coords.latitude;
-	var lon=position.coords.longitude;
+	  var lat='40.767612';
+	  var lon='-73.980918';
+	//var lat=position.coords.latitude;
+	//var lon=position.coords.longitude;
 	var google_latlon= new google.maps.LatLng(lat,lon);
 	 map = new google.maps.Map(document.getElementById('map'), {
           center: google_latlon,
@@ -50,7 +53,6 @@
 }
 
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjMCVGz3TlmuKFuwQ-H7-ORIQQlZ6s2mA"
-    async defer></script>
+    
   </body>
 </html>
