@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjMCVGz3TlmuKFuwQ-H7-ORIQQlZ6s2mA"></script>
+	<script>
+      
+	newmarkers=[];
+	oldmarkers=[];
+	
+	function load(){
+var lat="40.767612";
+	  var lon="-73.980918";
+	 var google_latlon= new google.maps.LatLng(lat,lon);
+	 map = new google.maps.Map(document.getElementById('map'), {
+          center: google_latlon,
+          zoom: 19
+        });
+		lumb();
+		}
+		
+		function lumb(){
+			var lat="40.766878";
+			var lon="-73.979055";
+			var google_latlon= new google.maps.LatLng(lat,lon);
+			var nmarker = new google.maps.Marker(
+			{
+			position: google_latlon,
+			title: "Here you live!"
+			});
+			newmarkers.push(nmarker);
+			var lat="40.766212";
+			var lon="-73.977553";
+			var google_latlon= new google.maps.LatLng(lat,lon);
+			var nmarker = new google.maps.Marker(
+			{
+			position: google_latlon,
+			title: "Here you live!"
+			});
+			newmarkers.push(nmarker);
+		
+				oldmarkers=newmarkers;
+				console.log("this is updated oldmarkers "+oldmarkers);
+				newmarkers=[];
+				setTimeout(timed,4000);
+				
+	}
+
+	function timed(){
+	alert("called");
+	for(j=0;j<oldmarkers.length;j++){
+				oldmarkers[j].setMap(map);
+				}
+				setTimeout(rmmarkers,4000);
+				}
+				
+				
+	function rmmarkers(){
+	alert("removing");
+	for(j=0;j<oldmarkers.length;j++){
+				oldmarkers[j].setMap(null);
+				oldmarkers[j]=null;
+				}
+				}
+	
+    </script>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body onload="load()">
+    <div id="map"></div>
+    
+    
+  </body>
+</html>
