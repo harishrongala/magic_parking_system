@@ -31,12 +31,12 @@
 </div>
 </nav>
 <!------------------- Navigation bar ends ------------------------->
-<div class="well">
-  <center><h4>Parking owners login here </h4></center>
+  <div class="alert alert-info" id="owner_notify_class" >
+  <center><h4 id="owner_notify_space"> Parking owners login here </h4></center>
 </div>
+
 <div class="row">
   <div class="col-xs-8 col-xs-offset-2 col-md-4 col-md-offset-4">
-  <form action="owner_login_validate.php" method="post">
     <div class="form-group">
       <label for="email">Email address:</label>
       <input type="email" class="form-control" id="email" name="email">
@@ -48,9 +48,28 @@
     <div class="checkbox">
       <label><input type="checkbox"> Remember me</label>
     </div>
-    <button type="submit" class="btn btn-success">Login</button>
-  </form>
+    <button type="submit" class="btn btn-success" onclick="post_credentials()">Login</button>
 </div>
 </div>
+
+<script>
+function post_credentials()
+{
+  var emailid=$('#email').val();
+  var pass=$('#pwd').val();
+  $.post("owner_login_validate.php",{email: emailid, password: pass}, function(data){
+    if(data!="Success")
+    {
+      $('#owner_notify_class').addClass('alert-danger').removeClass('alert-info');
+      $('#owner_notify_space').html(data);
+    }
+    else if(data=="Success"){
+      window.location.href="parking_owner_tool.php";
+    }
+  });
+
+}
+</script>
+
 </body>
 </html>

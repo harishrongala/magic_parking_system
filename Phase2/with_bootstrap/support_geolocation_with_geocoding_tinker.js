@@ -46,6 +46,7 @@ function get_location(){
 }
 
 
+
 // Geo coding support
 
 function handle(){

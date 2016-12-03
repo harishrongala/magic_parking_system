@@ -11,7 +11,7 @@
 
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjMCVGz3TlmuKFuwQ-H7-ORIQQlZ6s2mA"
     async defer></script>
-    <script src="support_centerchanged.js"></script>
+    <script src="support_centerchanged_type2.js"></script>
 </head>
 <body onload="geolocation()">
 
@@ -36,6 +36,12 @@
 </div>
 </nav>
 <!------------------- Navigation bar ends ------------------------->
+
+
+
+
+
+
 <!-------- Message area------------>
 <div class="container " id="notification_area">
 <div class="row panel panel-info" >
@@ -65,9 +71,6 @@
 
 <!------- Search bar ends -------------->
 <!------------- Insert map div here ---------------->
-<div id="static-img">
- <img src="http://mt.googleapis.com/vt/icon/name=icons/spotlight/spotlight-poi.png">
- </div>
 <div class="container" id="map">
   <div class="row">
   <div class="col-xs-12 col-md-8 col-md-offset-2" id="map" ></div>

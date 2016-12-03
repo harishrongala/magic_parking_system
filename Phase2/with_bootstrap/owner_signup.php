@@ -47,10 +47,6 @@
       <input type="name" class="form-control" id="lname" name="lname">
     </div>
     <div class="form-group">
-      <label for="orgname">Organization Name:</label>
-      <input type="name" class="form-control" id="orgname" name="orgname">
-    </div>
-    <div class="form-group">
       <label for="address">Address:</label>
       <input type="name" class="form-control" id="address" name="address">
     </div>

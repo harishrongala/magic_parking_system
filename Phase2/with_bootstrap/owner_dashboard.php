@@ -54,13 +54,17 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-6 thumbnail">
+    <div class="col-md-4 thumbnail">
       <img src="manage_parking_spaces.png" style="width:30%;">
-      <center><a class="btn btn-primary" href="owner_dashboard_manage_parking_spaces.php"> Manage Parking Spaces </a></center>
+      <center><a class="btn btn-primary" href="parking_owner_tool.php"> Manage Parking Spaces </a></center>
     </div>
-    <div class="col-md-6 thumbnail">
+    <div class="col-md-4 thumbnail">
       <img src="manage_parking_monitors.png" style="width:30%;">
-      <center><a class="btn btn-primary" href="owner_dashboard_manage_parking_monitors.php"> Manage Parking Monitors </a></center>
+      <center><a class="btn btn-primary" href="owner_dashboard_manage_parking_monitors.php"> Manage Parking Complaints </a></center>
+    </div>
+    <div class="col-md-4 thumbnail">
+      <img src="manage_parking_monitors.png" style="width:30%;">
+      <center><a class="btn btn-primary" href="owner_dashboard_manage_parking_monitors.php"> Analytics </a></center>
     </div>
   </div>
 </div>
