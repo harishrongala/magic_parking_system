@@ -17,6 +17,7 @@ function get_location(){
 function printem(position){
 	var lat=position.coords.latitude;
 	var lon=position.coords.longitude;
+	var acc=position.coords.accuracy;
 	var google_latlon= new google.maps.LatLng(lat,lon);
 	var mapopt={
 		zoom:10,
@@ -28,9 +29,12 @@ function printem(position){
 	var x=document.getElementById("lat");
 	x.innerHTML="Latitude is "+lat;
 	var y=document.getElementById("lon");
-	y.innerHTML="Longitude is "+lon;
+	y.innerHTML="Longitude is"+lon;
+	var z=document.getElementById("acc");
+	z.innerHTML="Accuracy is "+acc;
 	var lat=position.coords.latitude;
 	var lon=position.coords.longitude;
+	var acc=position.coords.accuracy;
 	var google_latlon= new google.maps.LatLng(lat,lon);
 	 map = new google.maps.Map(document.getElementById("map"), {
           center: google_latlon,
@@ -52,7 +56,9 @@ function printem(position){
 		position: new google.maps.LatLng(lat,lon+0.0001),
 		map: map,
 		title: "Here you live!",
-		icon: 'occupied.png'});
+		icon: 'occupied.png'
+		});
+		
 		mmarker.setMap(map);
 		
 	var infowindow = new google.maps.InfoWindow({
