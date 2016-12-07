@@ -1,4 +1,5 @@
 <?php
+// Using Session to track user login status
 session_start();
 include('invisible.php');
 if(isset($_SESSION['userid']))
@@ -53,7 +54,10 @@ if(isset($_SESSION['userid']))
 </div>
 </nav>
 <!------------------- Navigation bar ends ------------------------->
+
+<!-- This hidden input is given the value of username, so it would be easier for Jquery or javascript to access the value-->
 <input type="hidden" value=<?php echo $_SESSION['name']; ?> id="getusername"></input>
+
 <!-------- Message area------------>
 <div class="container " id="notification_area">
 <div class="row" >
@@ -65,6 +69,8 @@ if(isset($_SESSION['userid']))
 </div>
 </div>
 <!------- Message area ends----------->
+
+<!--- Dashboard options -->
 
 <div class="container-fluid">
   <div class="row">
@@ -80,15 +86,14 @@ if(isset($_SESSION['userid']))
   </div>
 </div>
 
-<!------------- Insert map div here ---------------->
-
-<!--------------- End map div ---------------------->
+<!-- Dashboard options end -->
 
 </body>
 </html>
 <?php
+// If user is not logged in show this message
 }
 else {
-  echo "Unauthorized";
+  echo "Unauthorized, Please log in";
 }
  ?>

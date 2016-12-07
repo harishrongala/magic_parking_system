@@ -14,17 +14,11 @@ session_start();
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css" rel="stylesheet"/>
-  <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"-->
-    <link rel="stylesheet" href="css/support_parking_owner_tool.css">
-  <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script-->
-  <!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script-->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjMCVGz3TlmuKFuwQ-H7-ORIQQlZ6s2mA"
-    async defer></script>
-      <!--script src="support_centerchanged.js"></script-->
-
-    <!--script src="support_geolocation_with_geocoding_tinker.js"></script-->
-    <script src="scripts/support_parking_owner_tool.js"></script>
-    <script src="scripts/moment.js"></script>
+<link rel="stylesheet" href="css/support_parking_owner_tool.css">
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjMCVGz3TlmuKFuwQ-H7-ORIQQlZ6s2mA"
+async defer></script>
+<script src="scripts/support_parking_owner_tool.js"></script>
+<script src="scripts/moment.js"></script>
 </head>
 <body onload="geolocation();">
 
@@ -49,10 +43,12 @@ session_start();
 </nav>
 <!------------------- Navigation bar ends ------------------------->
 
+<!-- For the jquery or javascript to access the userid -->
 <input type="hidden" value=<?php echo $_SESSION['userid']; ?> id="getuserid"></input>
 
 
 <!----------------- Add parking Modal window ---------------------------->
+
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -120,16 +116,16 @@ session_start();
 </div>
 
 
-        </div>
-      </div>
+</div>
+</div>
+</div>
+</div>
 
-            </div>
-          </div>
-
-<!-------------------- Modal ends---------------------->
+<!-------------------- Add parking Modal ends---------------------->
 
 
-<!----------------- Remove Modal window ---------------------------->
+<!----------------- Remove Parking Modal window ---------------------------->
+
 <!-- Modal -->
 <div id="removeModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -194,77 +190,7 @@ session_start();
 </div>
 </div>
 
-<!-------------------- Modal ends---------------------->
-
-
-<!----------------- Help Modal window ---------------------------->
-<!-- Modal -->
-<!--div id="helpModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    < Modal content>
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Here's how to use this tool</h4>
-      </div>
-      <div class="modal-body">
-        <div class="container-fluid">
-
-          <div class="row">
-          <div class="col-xs-8 col-xs-offset-2 col-md-8 col-md-offset-2">
-            <div class="thumbnail">
-            <img  src="step1.png" id="parking_space_image" style="width:50%; height:50%;">
-          </div>
-        </div>
-      </div>
-
-        <div class="row">
-        <div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3">
-          <label for="spaceid_modal"> Space ID: </label>
-          <div class="input-group">
-          <p id="spaceid_modal" class="input-group">123</p>
-        </div>
-      </div>
-    </div>
-
-
-      <div class="row">
-      <div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3">
-        <label for="address_modal"> Address: </label>
-      <div class="input-group">
-        <p id="address_modal" class="input-group">127 Charles St, Jersey City, NJ</p>
-      </div>
-    </div>
-  </div>
-
-
-<div class="row">
-<div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3">
-  <label for="max_modal"> Maximum parking duration: </label>
-<div class="input-group">
-  <p id="max_modal" class="input-group">3 Hour(s)</p>
-</div>
-</div>
-</div>
-
-<div class="row">
-  <div class="col-xs-3 col-xs-offset-8 col-md-2 col-md-offset-8" id="remove_parking_button">
-    <button class="btn btn-danger pull-right" onclick="ajax_reservation()">Remove Parking</button>
-  </div>
-</div>
-
-</div>
-
-</div>
-</div>
-</div>
-</div-->
-
-<!-------------------- Modal ends---------------------->
-
-
-
+<!-------------------- Remove parking Modal ends---------------------->
 
 
 <!-------- Message area------------>
@@ -274,8 +200,6 @@ session_start();
 </div>
 </div>
 <!------- Message area ends----------->
-
-<!--- Wrapping entire inputs in 'well' --->
 
 
 

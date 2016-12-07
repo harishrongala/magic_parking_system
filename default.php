@@ -20,7 +20,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="initial.php"><img src="images/logo2.png" style="width:90px; height:35px;"></a>
+    <a class="navbar-brand" href="default.php"><img src="images/logo2.png" style="width:90px; height:35px;"></a>
   </div>
   <div class="collapse navbar-collapse" id="mynavbar">
   <ul class="nav navbar-nav navbar-right">
@@ -67,13 +67,6 @@
 </div>
 <!------------------- Carousel ends---------------------->
 
-
-
-
-<!------------------- Login form --------------------------->
-
-
-<!-------------------- Login form ends --------------------->
 
 </body>
 </html>

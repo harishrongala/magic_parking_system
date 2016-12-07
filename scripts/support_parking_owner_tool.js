@@ -17,7 +17,9 @@
 	stat=false;
 	var popup;
 
-	// Get the geolocation
+// Global variables end
+
+// Get the geolocation
 	function geolocation()
 	{
 		if(navigator.geolocation){
@@ -30,7 +32,7 @@
 		}
 	}
 
-	// Map Initializer
+// Map Initializer
 	function load(position){
 		cen_lat=position.coords.latitude;
 		cen_lon=position.coords.longitude;

@@ -6,7 +6,7 @@ $_loc_lat=mysqli_real_escape_string($conn,$_POST['lat']);
 $_loc_lng=mysqli_real_escape_string($conn,$_POST['lng']);
 $_loc_address=mysqli_real_escape_string($conn,$_POST['address']);
 $_max=mysqli_real_escape_string($conn,$_POST['max']);
-$uploaddir = 'C:\wamp64\www\Parking\user_images\\';
+$uploaddir = 'C:\wamp64\www\Parking\magic_parking_system\user_images\\';
 $uploadfile = $uploaddir .$_user_id. basename($_FILES['userfile']['name']);
 move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile);
 $picname=$_user_id. basename($_FILES['userfile']['name']);
